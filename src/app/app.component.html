@@ -1,0 +1,81 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step label="Personal Details" [stepControl]="personal">
+    <div class="container">
+      <form [formGroup]="personal">
+        <div class="row text-center">
+          <div class="col">
+            <h2>Enter your Personal details</h2>
+            <mat-form-field appearance="outline">
+              <mat-label>Full Name</mat-label>
+              <input matInput formControlName="fullName" name="fullName" required>
+            </mat-form-field><br>
+            <mat-form-field appearance="outline">
+              <mat-label>Gender</mat-label>
+              <mat-select formControlName="gender" name="gender" required>
+                <mat-option id="maleId" value="male">Male</mat-option>
+                <mat-option id="femaleId" value="female">Female</mat-option>
+                <mat-option id="othersId" value="others">Others</mat-option>
+              </mat-select>
+            </mat-form-field><br>
+            <mat-form-field appearance="outline">
+              <mat-label>country</mat-label>
+              <mat-select formControlName="country" name="country" required>
+                <mat-option id="indiaId" value="india">India</mat-option>
+              </mat-select>
+            </mat-form-field><br>
+            <mat-form-field appearance="outline">
+              <mat-label>State</mat-label>
+              <mat-select formControlName="state" name="state" required>
+                <mat-option id="tamilnaduId" value="tamilNadu">Tamilnadu</mat-option>
+                <mat-option id="keralaId" value="kerala">Kerala</mat-option>
+                <mat-option id="bengaloreId" value="begalore">Bengalore</mat-option>
+              </mat-select>
+            </mat-form-field><br>
+            <mat-form-field appearance="outline">
+              <mat-label>Mobile Number</mat-label>
+              <input matInput formControlName="mobileNumber" name="mobileNumber" placeholder="123 456 7890" required>
+            </mat-form-field><br>
+          </div>
+        </div>
+        <div class="text-center">
+          <button mat-raised-button color="primary" matStepperNext [disabled]="personal.invalid" (click)=personalFun() >Next</button>
+        </div>
+      </form>
+  </div>
+  </mat-step>
+  <mat-step label="Company Details" [stepControl]="company">
+    <div class="container">
+      <form [formGroup]="company">
+        <div class="row text-center">
+          <div class="col">
+            <h2>Enter your Company details</h2>
+            <mat-form-field appearance="outline">
+              <mat-label>Company Name</mat-label>
+              <input matInput formControlName="companyName" name="companyName" required>
+            </mat-form-field><br>
+            <mat-form-field appearance="outline">
+              <mat-label>Email id</mat-label>
+              <input matInput formControlName="emailId" name="emailId" placeholder="abc@email.com" required>
+            </mat-form-field><br>
+            <mat-form-field appearance="outline">
+              <mat-label>Job Title</mat-label>
+              <input matInput formControlName="jobTitle" name="jobTitle" required>
+            </mat-form-field><br>
+            <mat-form-field appearance="outline">
+              <mat-label>Year of Experience</mat-label>
+              <input matInput formControlName="experience" name="experience" required>
+            </mat-form-field><br>
+          </div>
+        </div>
+        <div class="text-center">
+          <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+          <span>&nbsp;&nbsp;</span>
+          <button mat-raised-button color="primary" matStepperNext [disabled]="company.invalid" (click)=companyFun()>Next</button>
+        </div>
+      </form>
+    </div>
+  </mat-step>
+  <mat-step label="Success">
+    <p class="text-center">You are now done.</p>
+  </mat-step>
+</mat-horizontal-stepper>
